@@ -203,8 +203,8 @@ a:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
   /* smaller gaps between sections */
   .section { padding: var(--s5) 0; }
   #hero { padding: var(--s5) 0; }
-  /* the top bar scrolls away on phones, because it would take too much of the screen */
-  .site-header { position: static; }
+ /* keeps the top bar pinned on phones too */
+.site-header { position: sticky; top: 0; z-index: 10; }
   /* name and button on the first row, links drop to a second row */
   .nav { flex-wrap: wrap; gap: 0 var(--s3); padding: var(--s1) 0; }
   .main-nav { order: 3; flex-basis: 100%; }
