@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- tells the browser this is a modern HTML5 page -->
+<html lang="en">
+<head>
+<!-- lets the page show letters and symbols correctly -->
+<meta charset="utf-8">
+<!-- makes the page fit phone screens instead of looking tiny -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- the short summary that search engines can show -->
+<meta name="description" content="Shambhavi Shourya, BBA DBE student at IIM Bangalore, looking for marketing, growth and strategy internships.">
+<!-- the text on the browser tab -->
+<title>Shambhavi Shourya | BBA DBE, IIM Bangalore</title>
+<!-- these three lines load the two Google Fonts (Fraunces and Figtree) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+<!-- connects this page to my style.css file, where all the styling lives -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body id="top">
+
+<!-- TOP BAR: my name, the page links and the LinkedIn button. It stays at the top while scrolling. -->
+<header class="site-header">
+  <div class="wrap nav">
+    <!-- clicking my name jumps back to the top of the page -->
+    <a class="brand" href="#top">Shambhavi Shourya</a>
+    <!-- nav is the tag for a block of navigation links -->
+    <nav class="main-nav" aria-label="Main">
+      <ul class="nav-links">
+        <!-- each link jumps to the section with the matching id -->
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#experience">Experience</a></li>
+        <li><a class="nav-link" href="#education">Education</a></li>
+        <li><a class="nav-link" href="#skills">Skills</a></li>
+        <li><a class="nav-link" href="#resume">Resume</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- opens my LinkedIn in a new tab; noopener keeps the new tab safe -->
+    <a class="btn btn-primary" href="https://www.linkedin.com/in/shambhavi-shourya-885b4942a" target="_blank" rel="noopener noreferrer">Open my LinkedIn</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO: a big turquoise block, the first thing a visitor sees. Who I am, what I want, how to reach me. -->
+<section id="hero" class="section">
+  <div class="wrap">
+    <!-- h1 is the main heading; there is only one per page -->
+    <h1>Shambhavi Shourya</h1>
+    <p class="lead">A curious mind at the intersection of business, creativity, and strategy, passionate about exploring ideas, solving problems, and discovering innovative ways to turn possibilities into meaningful impact.</p>
+    <p class="hero-line">BBA in Digital Business and Entrepreneurship, IIM Bangalore, 2026–29</p>
+    <p class="hero-line hero-ask">Open to marketing, growth and strategy internships.</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/shambhavi-shourya-885b4942a" target="_blank" rel="noopener noreferrer">Open my LinkedIn</a>
+      <!-- mailto opens the email app; ?subject= fills in the subject line -->
+      <a class="btn btn-secondary" href="mailto:shouryashambhavi@gmail.com?subject=Internship%20opportunity">Email me</a>
+    </div>
+    <p class="proof">Finalist in Parivartan (TISS), Smart Tank (FLAME) and Boardroom Brawlz (Drishti, IIMB), 2026.</p>
+  </div>
+</section>
+
+<!-- ABOUT: heading on the left, three short paragraphs on the right (the "split" layout) -->
+<section id="about" class="section">
+  <div class="wrap split">
+    <h2>About</h2>
+    <div class="content">
+      <p>Having studied in eight different schools, I’ve grown up adapting to new environments, meeting people from different backgrounds and embracing new experiences. Moving between different places has shaped my adaptability, curiosity and ability to see things from different perspectives.</p>
+      <p>I am currently pursuing a BBA in Digital Business and Entrepreneurship (2026–29) at IIM Bangalore, where I am developing my understanding of business, marketing and entrepreneurship. I am particularly interested in brand management, marketing strategy and consumer behaviour, and enjoy exploring how brands communicate, connect with audiences and build strong identities.</p>
+      <p>Beyond academics, I enjoy expressing ideas through copywriting, video editing and presentation design. I am equally interested in business problem-solving, creative thinking and understanding real-world business challenges through projects and case competitions. I am keen to gain hands-on experience in marketing, growth and strategy, while continuously learning, exploring new perspectives and turning ideas into tangible outcomes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE: my three case competition finals, one card each. section-light gives it the pale background. -->
+<section id="experience" class="section section-light">
+  <div class="wrap split">
+    <h2>Experience</h2>
+    <div class="content">
+      <div class="cards">
+        <!-- article is the tag for a self-contained item, like one competition -->
+        <article class="card card-row">
+          <h3>Parivartan</h3>
+          <p>Tata Institute of Social Sciences</p>
+          <p class="meta">Case competition finalist, 2026</p>
+        </article>
+        <article class="card card-row">
+          <h3>Smart Tank</h3>
+          <p>FLAME University</p>
+          <p class="meta">Case competition finalist, 2026</p>
+        </article>
+        <article class="card card-row">
+          <h3>Boardroom Brawlz</h3>
+          <p>Drishti, IIM Bangalore</p>
+          <p class="meta">Case competition finalist, 2026</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION: my college and my school, two cards -->
+<section id="education" class="section">
+  <div class="wrap split">
+    <h2>Education</h2>
+    <div class="content">
+      <div class="cards">
+        <article class="card card-row">
+          <h3>Indian Institute of Management Bangalore</h3>
+          <p>BBA in Digital Business and Entrepreneurship</p>
+          <p class="meta">2026–29</p>
+        </article>
+        <article class="card card-row">
+          <h3>Sagar Public School, Bhopal</h3>
+          <p>Class XII, CBSE · 94%</p>
+          <p class="meta">2026</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS: skills I used in the finals, then what I am still learning (pale background) -->
+<section id="skills" class="section section-light">
+  <div class="wrap split">
+    <h2>Skills</h2>
+    <div class="content">
+      <article class="card">
+        <h3>Used in all three finals</h3>
+        <!-- ul is a bullet list, and each li is one bullet -->
+        <ul class="list">
+          <li>Business problem-solving</li>
+          <li>Research and analysis</li>
+          <li>Strategic thinking</li>
+          <li>Presentation and PPT design</li>
+          <li>Team collaboration</li>
+          <li>Business communication</li>
+        </ul>
+      </article>
+      <p class="learning">Currently learning: Microsoft Excel, copywriting, video editing (CapCut), business analytics, digital marketing and content strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAPER RESUME: heading on the left, a white one-page sheet on the right. Only the sheet prints. -->
+<section id="resume" class="section">
+  <div class="wrap split">
+    <h2>Resume</h2>
+    <div class="content">
+      <div class="sheet">
+        <h3>Shambhavi Shourya</h3>
+        <p>
+          <a href="mailto:shouryashambhavi@gmail.com">shouryashambhavi@gmail.com</a> ·
+          <a href="https://www.linkedin.com/in/shambhavi-shourya-885b4942a">linkedin.com/in/shambhavi-shourya-885b4942a</a>
+        </p>
+        <p>BBA (Digital Business and Entrepreneurship) student at IIM Bangalore, looking for marketing, growth and strategy internships.</p>
+
+        <h4 class="sheet-heading">Experience</h4>
+        <p class="sheet-sub">Case Competitions</p>
+        <ul>
+          <li><strong>Parivartan</strong>, Tata Institute of Social Sciences. Finalist, 2026.</li>
+          <li><strong>Smart Tank</strong>, FLAME University. Finalist, 2026.</li>
+          <li><strong>Boardroom Brawlz</strong>, Drishti, IIM Bangalore. Finalist, 2026.</li>
+        </ul>
+
+        <h4 class="sheet-heading">Education</h4>
+        <ul>
+          <li><strong>IIM Bangalore</strong>, BBA in Digital Business and Entrepreneurship, 2026–29</li>
+          <li><strong>Sagar Public School, Bhopal</strong>, Class XII (CBSE), 94%, 2026</li>
+        </ul>
+
+        <h4 class="sheet-heading">Skills</h4>
+        <p>Business problem-solving, research and analysis, strategic thinking, presentation and PPT design, team collaboration, business communication (used in the three finals).</p>
+        <p>Currently learning: Microsoft Excel, copywriting, video editing (CapCut), business analytics, digital marketing, content strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT: three buttons that each do one clear thing (pale background) -->
+<section id="contact" class="section section-light">
+  <div class="wrap split">
+    <h2>Let’s connect</h2>
+    <div class="content">
+      <p>Open to marketing, growth and strategy internships.</p>
+      <p>Email: <a href="mailto:shouryashambhavi@gmail.com">shouryashambhavi@gmail.com</a></p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://www.linkedin.com/in/shambhavi-shourya-885b4942a" target="_blank" rel="noopener noreferrer">Open my LinkedIn</a>
+        <!-- %20 means a space and %27 means an apostrophe inside a web address -->
+        <a class="btn btn-secondary" href="mailto:shouryashambhavi@gmail.com?subject=Internship%20opportunity">Email me about an internship</a>
+        <a class="btn btn-secondary" href="mailto:shouryashambhavi@gmail.com?subject=Let%27s%20collaborate">Email me to collaborate</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER: the copyright line at the very bottom -->
+<footer class="site-footer">
+  <div class="wrap">
+    <p>© 2026 Shambhavi Shourya</p>
+  </div>
+</footer>
+
+</body>
+</html>

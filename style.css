@@ -1,0 +1,243 @@
+/* ===== VARIABLES: colours, spacing and fonts saved once, used everywhere ===== */
+:root {
+  /* page background: black */
+  --bg: #0A0A0A;
+  /* soft white, used for text on black */
+  --white: #F5F5F5;
+  --text: var(--white);
+  /* quieter text, still easy to read on black */
+  --text-2: #B8B8B8;
+  /* thin grey lines around cards */
+  --line: #2A2A2A;
+  /* turquoise: buttons, the hero block and hover fills */
+  --accent: #40E0D0;
+  /* turquoise used for text, headings and links (a darker shade is used on light sections) */
+  --accent-text: #40E0D0;
+  /* colours a card swaps to when you hover over it */
+  --hover-bg: var(--accent);
+  --hover-fg: var(--bg);
+  --hover-meta: var(--bg);
+  /* light section background, white sheet and black ink for the paper resume */
+  --light: #F4F4F0;
+  --paper: #FFFFFF;
+  --ink: #000000;
+  /* spacing scale: 8px small gap, 24px between groups, 40px and 64px between sections */
+  --s1: 8px;
+  --s3: 24px;
+  --s5: 40px;
+  --s6: 64px;
+  /* space between content and the screen edge */
+  --edge: 24px;
+  /* headings use Fraunces, body text uses Figtree, with backups if Google Fonts does not load */
+  --font-head: "Fraunces", Georgia, serif;
+  --font-body: "Figtree", Arial, sans-serif;
+}
+
+/* ===== BASE ELEMENTS: rules for plain tags like body, h1, p and a ===== */
+/* width and height now include padding and border, so boxes are easier to size */
+* { box-sizing: border-box; }
+/* when a link jumps to a section, leave a gap so the sticky bar does not cover it */
+html { scroll-padding-top: 80px; }
+body {
+  /* remove the browser's default white edge, and make the page black with white text */
+  margin: 0; background: var(--bg); color: var(--text);
+  /* body font, a comfortable size, and roomy lines */
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+}
+/* every heading uses the heading font and sits close to what follows */
+h1, h2, h3, h4 { font-family: var(--font-head); font-weight: 600; line-height: 1.15; margin: 0 0 var(--s1); }
+/* the big name at the top, it grows and shrinks with the screen */
+h1 { font-size: clamp(44px, 9vw, 104px); font-weight: 700; line-height: 1.02; margin-bottom: var(--s3); }
+/* section headings in turquoise */
+h2 { font-size: clamp(26px, 3.2vw, 32px); color: var(--accent-text); }
+/* card titles */
+h3 { font-size: 20px; }
+/* headings wrap evenly, so the last line is never one lonely word */
+h1, h2, h3 { text-wrap: balance; }
+/* paragraphs stay narrow (about 68 characters) so they are easy to read */
+p { margin: 0 0 var(--s3); max-width: 68ch; text-wrap: pretty; }
+/* links are turquoise and underlined, and change colour when you hover */
+a { color: var(--accent-text); text-decoration: underline; text-underline-offset: 3px; }
+a:hover { color: var(--text); }
+/* a clear outline when someone tabs through the page with a keyboard */
+a:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
+
+/* ===== LAYOUT: centred column, sections, and the two-column ledger (.split) ===== */
+/* keeps content centred, not too wide, and away from the screen edge */
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 var(--edge); }
+/* breathing room above and below every section */
+.section { padding: var(--s6) 0; }
+/* light sections: pale background and dark text; every colour variable is swapped here, so the rest of the CSS just works */
+.section-light {
+  background: var(--light);
+  color: var(--ink);
+  --text: #0A0A0A;
+  --text-2: #444444;
+  --line: #D0D0C8;
+  /* a darker turquoise, because bright turquoise is hard to read on a light background */
+  --accent-text: #00695F;
+  --hover-bg: var(--bg); --hover-fg: var(--white); --hover-meta: var(--accent);
+}
+/* ledger layout: the heading sits in a narrow left column, the content in a wide right column */
+.split { display: grid; grid-template-columns: 220px 1fr; gap: var(--s5); align-items: start; }
+/* the heading stays in view while you read that section */
+.split h2 { position: sticky; top: 96px; margin: 0; }
+.content { grid-column: 2; }
+/* no extra space above the first item or below the last one in the right column */
+.content > :first-child { margin-top: 0; }
+.content > :last-child { margin-bottom: 0; }
+
+/* ===== NAVIGATION BAR (flexbox): name on the left, links in the middle, LinkedIn button on the right ===== */
+/* the bar sticks to the top of the screen while you scroll, with a thin grey line under it */
+.site-header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
+/* flexbox puts the three parts in one row and spreads them apart */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: var(--s3); min-height: 72px; }
+/* your name: at least 44px tall so it is easy to tap */
+.brand { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-head); font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; }
+/* the name turns turquoise on hover */
+.brand:hover { color: var(--accent-text); }
+/* the links sit side by side in a row and wrap onto a new line if there is no room */
+.nav-links { display: flex; flex-wrap: wrap; gap: 0 var(--s3); margin: 0; padding: 0; list-style: none; }
+/* each link is 44px tall so it is easy to tap, with quieter text and no underline */
+.nav-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 15px; color: var(--text-2); text-decoration: none; }
+/* links turn turquoise on hover */
+.nav-link:hover { color: var(--accent-text); }
+
+/* ===== BUTTONS: .btn is the shared shape, .btn-primary is filled turquoise, .btn-secondary is an outline ===== */
+/* a row of buttons with a small gap, wrapping if the screen is narrow */
+.actions { display: flex; flex-wrap: wrap; gap: var(--s1); margin: var(--s3) 0; }
+.btn {
+  /* centre the text inside the button, and make it at least 44px tall so it is easy to tap */
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px;
+  /* thin turquoise outline and squarer corners, not pills */
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  /* only the colours change on hover, nothing moves */
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+}
+/* main button: turquoise with black text, so it stands out most */
+.btn-primary { background: var(--accent); color: var(--bg); }
+/* on hover the colours swap to the opposite: white on black sections, black on light sections */
+.btn-primary:hover { background: var(--text); border-color: var(--text); color: var(--hover-fg); }
+/* second button: just an outline */
+.btn-secondary { background: transparent; border-color: var(--text); color: var(--text); }
+/* on hover it fills with turquoise */
+.btn-secondary:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+
+/* ===== HERO (#hero): a big turquoise block with black text, buttons flipped to black ===== */
+#hero {
+  /* extra space above and below, so it feels big and bold */
+  padding: var(--s6) 0 var(--s6);
+  background: var(--accent);
+  /* on turquoise everything is black, so these variables are swapped for this section */
+  --text: #0A0A0A;
+  --text-2: #262626;
+  --accent-text: #0A0A0A;
+  color: var(--text);
+}
+/* the one-liner is a little bigger than normal text */
+.lead { font-size: 20px; }
+/* small supporting lines in dark grey */
+.hero-line { color: var(--text-2); margin-bottom: var(--s1); }
+/* the internship line is bold, because it is what I am asking for */
+.hero-ask { color: var(--text); font-weight: 700; }
+/* the finalist line sits under the buttons */
+.proof { color: var(--text-2); font-size: 15px; margin: var(--s3) 0 0; }
+/* hero buttons: black button with turquoise text, because turquoise on turquoise would vanish */
+#hero .btn-primary { background: var(--text); border-color: var(--text); color: var(--accent); }
+#hero .btn-primary:hover { background: transparent; color: var(--text); }
+#hero .btn-secondary:hover { background: var(--text); border-color: var(--text); color: var(--accent); }
+
+/* ===== CARDS (grid): flat boxes with a thin outline, stacked like rows in a ledger ===== */
+/* grid stacks the cards in one column with a small gap between them */
+.cards { display: grid; gap: var(--s1); }
+/* a card: thin outline, squarer corners, space inside */
+.card { border: 1px solid var(--line); border-radius: 4px; padding: var(--s3); transition: color 0.2s, background-color 0.2s, border-color 0.2s; }
+/* on hover the whole card swaps colours (turquoise on black sections, black on light ones); nothing moves */
+.card:hover { background: var(--hover-bg); border-color: var(--hover-bg); color: var(--hover-fg); }
+.card:hover p { color: var(--hover-fg); }
+.card:hover .meta { color: var(--hover-meta); }
+/* small text inside a card: quieter grey */
+.card p { margin: 0 0 var(--s1); color: var(--text-2); font-size: 15px; }
+/* card row: title and place on the left, the year on the right */
+.card-row { display: grid; grid-template-columns: 1fr auto; gap: 0 var(--s3); align-items: baseline; }
+.card-row h3, .card-row p { grid-column: 1; }
+/* the year line in turquoise, lined up on the right */
+.card .meta { grid-column: 2; grid-row: 1 / span 2; color: var(--accent-text); font-weight: 600; text-align: right; margin: 0; }
+
+/* ===== SKILLS (#skills): the list inside the card and the "currently learning" sentence ===== */
+/* bullet list in two columns with a little space between items */
+.list { margin: 0; padding-left: 20px; columns: 2; column-gap: var(--s5); }
+.list li { margin-bottom: var(--s1); }
+/* the "currently learning" sentence sits below the card */
+.learning { color: var(--text-2); margin: var(--s3) 0 0; }
+
+/* ===== RESUME (#resume): the white paper sheet ===== */
+/* the sheet: white paper, black text, about the width of an A4 page */
+.sheet { max-width: 794px; background: var(--paper); color: var(--ink); padding: var(--s5); font-size: 15px; line-height: 1.5; }
+.sheet h3 { font-size: 30px; }
+/* tighter paragraphs, like a real resume */
+.sheet p { margin: 0 0 var(--s1); }
+/* links inside the sheet stay black, because turquoise is hard to read on white */
+.sheet a, .sheet a:hover { color: var(--ink); }
+.sheet ul { margin: 0; padding-left: 20px; }
+.sheet li { margin-bottom: var(--s1); }
+/* resume headings: small capitals with a thin black line under them */
+.sheet-heading { font-family: var(--font-body); font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; margin: var(--s3) 0 var(--s1); padding-bottom: 4px; border-bottom: 1px solid var(--ink); }
+/* the "Case Competitions" label inside Experience */
+.sheet-sub { font-weight: 600; }
+
+/* ===== FOOTER: the copyright line at the bottom ===== */
+.site-footer { padding: var(--s3) 0 var(--s5); color: var(--text-2); font-size: 15px; }
+.site-footer p { margin: 0; }
+
+/* ===== MOBILE (screens narrower than 700px): one column and tighter spacing ===== */
+@media (max-width: 699px) {
+  /* less space at the screen edge */
+  :root { --edge: 16px; }
+  /* smaller gaps between sections */
+  .section { padding: var(--s5) 0; }
+  #hero { padding: var(--s5) 0; }
+  /* the top bar scrolls away on phones, because it would take too much of the screen */
+  .site-header { position: static; }
+  /* name and button on the first row, links drop to a second row */
+  .nav { flex-wrap: wrap; gap: 0 var(--s3); padding: var(--s1) 0; }
+  .main-nav { order: 3; flex-basis: 100%; }
+  /* the heading goes above the content instead of beside it */
+  .split { grid-template-columns: 1fr; gap: var(--s3); }
+  .split h2 { position: static; }
+  .content { grid-column: 1; }
+  /* card rows stack: the year drops under the title, and the skills list becomes one column */
+  .card-row { grid-template-columns: 1fr; }
+  .card .meta { grid-column: 1; grid-row: auto; text-align: left; }
+  .list { columns: 1; }
+  /* buttons stretch across the screen */
+  .actions .btn { flex: 1 1 100%; }
+  .sheet { padding: var(--s3); }
+}
+
+/* ===== PRINT: the page size used when saving the PDF ===== */
+@page { size: A4; margin: 12mm; }
+
+/* ===== PRINT: show only the resume, black text on white, on one A4 page ===== */
+@media print {
+  /* hide everything except the resume sheet (also the "Resume" heading) */
+  .site-header, .site-footer, .section:not(#resume), #resume h2 { display: none; }
+  body { background: #FFFFFF; color: #000000; }
+  .wrap { max-width: none; padding: 0; }
+  /* the two-column layout becomes a plain block so the sheet fills the page */
+  .split { display: block; }
+  #resume { padding: 0; }
+  /* slightly smaller text so it all fits on one page */
+  .sheet { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.4; }
+}
+
+/* ===== REDUCED MOTION: switch off the colour changes for people who prefer no animation ===== */
+@media (prefers-reduced-motion: reduce) {
+  .btn, .card { transition: none; }
+}
