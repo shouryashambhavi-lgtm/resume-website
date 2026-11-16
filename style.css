@@ -36,8 +36,7 @@
 /* ===== BASE ELEMENTS: rules for plain tags like body, h1, p and a ===== */
 /* width and height now include padding and border, so boxes are easier to size */
 * { box-sizing: border-box; }
-/* when a link jumps to a section, leave a gap so the sticky bar does not cover it */
-html { scroll-padding-top: 80px; }
+html { scroll-padding-top: 80px; scroll-behavior: smooth; }
 body {
   /* remove the browser's default white edge, and make the page black with white text */
   margin: 0; background: var(--bg); color: var(--text);
@@ -237,7 +236,8 @@ a:focus-visible { outline: 3px solid var(--accent-text); outline-offset: 3px; }
   .sheet { max-width: none; padding: 0; font-size: 10.5pt; line-height: 1.4; }
 }
 
-/* ===== REDUCED MOTION: switch off the colour changes for people who prefer no animation ===== */
 @media (prefers-reduced-motion: reduce) {
   .btn, .card { transition: none; }
+  html { scroll-behavior: auto; }
+}
 }
